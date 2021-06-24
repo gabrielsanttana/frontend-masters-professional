@@ -1,20 +1,22 @@
-// Tests
-console.log(Object.is(42, 42) === true);
-console.log(Object.is("foo", "foo") === true);
-console.log(Object.is(false, false) === true);
-console.log(Object.is(null, null) === true);
-console.log(Object.is(undefined, undefined) === true);
-console.log(Object.is(NaN, NaN) === true);
-console.log(Object.is(-0, -0) === true);
-console.log(Object.is(0, 0) === true);
+const { ObjectIs } = require("./solution");
 
-console.log(Object.is(-0, 0) === false);
-console.log(Object.is(0, -0) === false);
-console.log(Object.is(0, NaN) === false);
-console.log(Object.is(NaN, 0) === false);
-console.log(Object.is(42, "42") === false);
-console.log(Object.is("42", 42) === false);
-console.log(Object.is("foo", "bar") === false);
-console.log(Object.is(false, true) === false);
-console.log(Object.is(null, undefined) === false);
-console.log(Object.is(undefined, null) === false);
+// Tests
+console.log(ObjectIs(42, 42) === true);
+console.log(ObjectIs("foo", "foo") === true);
+console.log(ObjectIs(false, false) === true);
+console.log(ObjectIs(null, null) === true);
+console.log(ObjectIs(undefined, undefined) === true);
+console.log(ObjectIs(NaN, NaN) === true);
+console.log(ObjectIs(-0, -0) === true);
+console.log(ObjectIs(0, 0) === true);
+
+console.log(ObjectIs(-0, 0) === false);
+console.log(ObjectIs(0, -0) === false);
+console.log(ObjectIs(0, NaN) === false);
+console.log(ObjectIs(NaN, 0) === false);
+console.log(ObjectIs(42, "42") === false);
+console.log(ObjectIs("42", 42) === false);
+console.log(ObjectIs("foo", "bar") === false);
+console.log(ObjectIs(false, true) === false);
+console.log(ObjectIs(null, undefined) === false);
+console.log(ObjectIs(undefined, null) === false);
