@@ -1,26 +1,24 @@
-if (!Object.is) {
-  Object.is = function ObjectIs(x, y) {
-    var xNegZero = isItNegZero(x);
-    var yNegZero = isItNegZero(y);
+function ObjectIs(x, y) {
+  var xNegZero = isItNegZero(x);
+  var yNegZero = isItNegZero(y);
 
-    if (xNegZero || yNegZero) {
-      return xNegZero && yNegZero;
-    } else if (isItNaN(x) && isItNaN(y)) {
-      return true;
-    } else if (x === y) {
-      return true;
-    }
+  if (xNegZero || yNegZero) {
+    return xNegZero && yNegZero;
+  } else if (isItNaN(x) && isItNaN(y)) {
+    return true;
+  } else if (x === y) {
+    return true;
+  }
 
-    return false;
+  return false;
 
-    function isItNegZero(x) {
-      return x === 0 && 1 / x === -Infinity;
-    }
+  function isItNegZero(x) {
+    return x === 0 && 1 / x === -Infinity;
+  }
 
-    function isItNaN(x) {
-      return x !== x;
-    }
-  };
+  function isItNaN(x) {
+    return x !== x;
+  }
 }
 
 // Tests
@@ -43,3 +41,7 @@ console.log(Object.is("foo", "bar") === false);
 console.log(Object.is(false, true) === false);
 console.log(Object.is(null, undefined) === false);
 console.log(Object.is(undefined, null) === false);
+
+module.exports = {
+  ObjectIs,
+};
